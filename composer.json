@@ -1,0 +1,36 @@
+{
+    "name": "sadegh19b/laravel-persian-validation",
+    "license": "MIT",
+    "description": "A persian validation package for laravel",
+    "keywords": ["laravel", "validation", "persian", "farsi", "validate", "validator"],
+    "authors": [
+        {
+            "name": "Sadegh Barzegar",
+            "email": "sadegh19b@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev" : {
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sadegh19b\\LaravelPersianValidation\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sadegh19b\\LaravelPersianValidation\\PersianValidationServiceProvider"
+            ]
+        }
+    }
+}
