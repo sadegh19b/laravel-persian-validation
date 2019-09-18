@@ -119,6 +119,8 @@ class PersianValidators
 
     /**
      * Validate Iran postal code format.
+     * Old pattern /^(\d{5}-?\d{5})$/
+     * New pattern ref: https://stackoverflow.com/questions/48719799/iranian-postal-code-validation
      *
      * @param $attribute
      * @param $value
@@ -127,7 +129,7 @@ class PersianValidators
      */
     public function validateIranianPostalCode($attribute, $value, $parameters)
     {
-        return preg_match("/^(\d{5}-?\d{5})$/", $value);
+        return preg_match("\b(?!(\d)\1{3})[13-9]{4}[1346-9]-?[013-9]{5}\b", $value);
     }
 
     /**
