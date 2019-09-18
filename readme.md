@@ -17,6 +17,9 @@ composer require sadegh19b/laravel-persian-validation
 
 ## vendor:publish
 You can run vendor:publish command to have custom lang file of package on this path ( resources/lang/{locale}/persian-validation.php )
+``` bash
+php artisan vendor:publish --provider="Sadegh19b\LaravelPersianValidation\PersianValidationServiceProvider"
+```
 
 ## Usage
 
