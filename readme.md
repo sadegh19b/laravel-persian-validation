@@ -12,7 +12,7 @@ Laravel Persian Validation Provides validation for Persian alphabet, number and 
 Via Composer
 
 ``` bash
-$ composer require Sadegh19b/PersianValidation
+composer require sadegh19b/laravel-persian-validation
 ```
 
 ## vendor:publish
@@ -175,4 +175,4 @@ Validator::make( $request->all(), [
 ```
 
 ## License
-The [MIT license](http://opensource.org/licenses/MIT) (MIT). Please see [License File](http://opensource.org/licenses/MIT) for more information.
+The [MIT license](http://opensource.org/licenses/MIT) (MIT). Please see [License File](https://github.com/sadegh19b/laravel-persian-validation/blob/master/LICENSE.md) for more information.
