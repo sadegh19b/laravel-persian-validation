@@ -1,10 +1,10 @@
-# Laravel 6 Persian Validation
+# Laravel Persian Validation
 
 Laravel Persian Validation Provides validation for Persian alphabet, number and etc.
 
 ## Requirement
 
-* Laravel 6.0
+* Laravel 6,7
 * PHP 7.2 >=
 
 ## Install
