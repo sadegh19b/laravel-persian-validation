@@ -30,6 +30,7 @@ You can access to validation rules by passing the rules key according blew follo
 | persian_alpha | Persian alphabet | صادق
 | persian_num | Persian numbers | ۱۲۳۴
 | persian_alpha_num | Persian alphabet and numbers |صادق۱۲۳۴
+| persian_alpha_eng_num | Persian alphabet and numbers with english numbers |صادق۱۲34
 | persian_not_accept | Doesn't accept Persian alphabet and numbers | cant be persian
 | ir_mobile | Iranian mobile numbers | 00989173456789, +989173456789, 989173456789, 09173456789, 91712345678
 | ir_phone | Iranian phone numbers | 37236445
@@ -72,6 +73,17 @@ Validate Persian alpha num:
 $input = [ '۰فارسی۱۲۳۴۵۶۷۸۹' ];
 
 $rules = [ 'persian_alpha_num' ];
+
+Validator::make( $input, $rules );
+```
+
+### Persian Alpha Eng Num
+Validate Persian alpha num with english num:
+
+```
+$input = [ '۰فارسی۱۲۳۴۵6789' ];
+
+$rules = [ 'persian_alpha_eng_num' ];
 
 Validator::make( $input, $rules );
 ```
@@ -151,6 +163,8 @@ Validator::make( $request->all(), [
   'age'           => 'persian_num|required',  // Validate Persian numbers and check it's required
 
   'city'          => 'persian_alpha_num|min:10',  // Validate persian alphabet & numbers at least 10 digit accepted
+
+  'address'       => 'persian_alpha_eng_num',  // Validate persian alphabet & numbers with english numbers
 
   'mobile'        => 'ir_mobile', // Validate mobile number
 

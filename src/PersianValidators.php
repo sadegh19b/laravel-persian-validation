@@ -48,6 +48,20 @@ class PersianValidators
         return preg_match('/^[\x{600}-\x{6FF}\x{200c}\x{064b}\x{064d}\x{064c}\x{064e}\x{064f}\x{0650}\x{0651}\s]+$/u', $value);
     }
 
+
+    /**
+     * Validate persian alphabet, persian number, english number and space.
+     *
+     * @param $attribute
+     * @param $value
+     * @param $parameters
+     * @return bool
+     */
+    public function validatePersianAlphaEngNumber($attribute, $value, $parameters)
+    {
+        return preg_match('/^[\x{600}-\x{6FF}\x{200c}\x{064b}\x{064d}\x{064c}\x{064e}\x{064f}\x{0650}\x{0651}\0-9\s]+$/u', $value);
+    }
+
     /**
      * Validate string that is not contain persian alphabet and number.
      *

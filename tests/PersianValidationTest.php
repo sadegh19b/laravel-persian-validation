@@ -116,6 +116,41 @@ class PersianValidationTest extends TestCase
     }
 
     /**
+     * Unit test of persian alphabet and number with english number
+     *
+     * @return void
+     */
+    public function testPersianAlphaEngNumber()
+    {
+        $this->value = "Sadegh1234";
+        $this->assertEquals(false, $this->persianValidator->validatePersianAlphaEngNumber($this->attribute, $this->value, $this->parameters));
+
+        $this->value = "1111صادق";
+        $this->assertEquals(true, $this->persianValidator->validatePersianAlphaEngNumber($this->attribute, $this->value, $this->parameters));
+
+        $this->value =  "1111صادق۱۲۳۴";
+        $this->assertEquals(true, $this->persianValidator->validatePersianAlphaEngNumber($this->attribute, $this->value, $this->parameters));
+
+        $this->value =  "صادق";
+        $this->assertEquals(true, $this->persianValidator->validatePersianAlphaEngNumber($this->attribute, $this->value, $this->parameters));
+
+        $this->value =  "۱۲۳۴";
+        $this->assertEquals(true, $this->persianValidator->validatePersianAlphaEngNumber($this->attribute, $this->value, $this->parameters));
+
+        $this->value =  "1234";
+        $this->assertEquals(true, $this->persianValidator->validatePersianAlphaEngNumber($this->attribute, $this->value, $this->parameters));
+
+        $this->value =  "Sadegh۱۲۳۴صادق";
+        $this->assertEquals(false, $this->persianValidator->validatePersianAlphaEngNumber($this->attribute, $this->value, $this->parameters));
+
+        $this->value =  "۱۲۳۴ صادق";
+        $this->assertEquals(true, $this->persianValidator->validatePersianAlphaEngNumber($this->attribute, $this->value, $this->parameters));
+
+	    $this->value = "وَحِیُدّ‌الٍمٌاًسی";
+	    $this->assertEquals(true, $this->persianValidator->validatePersianAlphaEngNumber($this->attribute, $this->value, $this->parameters));
+    }
+
+    /**
      * Unit test of iranian mobile number
      *
      * @return void
