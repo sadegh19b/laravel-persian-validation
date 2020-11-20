@@ -4,6 +4,7 @@ return [
 	'persian_alpha' 			    => 'The :attribute must be a persian alphabet.',
     'persian_num'				    => 'The :attribute must be a persian number.',
     'persian_alpha_num'			    => 'The :attribute must be a persian alphabet or number.',
+    'persian_alpha_eng_num'			    => 'The :attribute must be a persian alphabet or number or english number.',
     'persian_not_accept'		    => 'The :attribute could not be contain persian alphabet or number.',
     'ir_mobile'				        => 'The :attribute must be a iranian mobile number.',
     'ir_phone'				        => 'The :attribute must be a iranian phone number.',

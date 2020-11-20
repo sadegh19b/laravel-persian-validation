@@ -18,6 +18,7 @@ class PersianValidationServiceProvider extends ServiceProvider
         'persian_alpha'         => 'PersianAlpha',
         'persian_num'           => 'PersianNumber',
         'persian_alpha_num'     => 'PersianAlphaNumber',
+        'persian_alpha_eng_num'     => 'PersianAlphaEngNumber',
         'persian_not_accept'    => 'PersianNotAccept',
         'ir_mobile'             => 'IranianMobile',
         'ir_phone'              => 'IranianPhone',
