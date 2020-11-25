@@ -18,8 +18,10 @@ class PersianValidationServiceProvider extends ServiceProvider
         'persian_alpha'         => 'PersianAlpha',
         'persian_num'           => 'PersianNumber',
         'persian_alpha_num'     => 'PersianAlphaNumber',
-        'persian_alpha_eng_num'     => 'PersianAlphaEngNumber',
+        'persian_alpha_eng_num' => 'PersianAlphaEngNumber',
         'persian_not_accept'    => 'PersianNotAccept',
+        'shamsi_date'           => 'ShamsiDate',
+        'shamsi_date_between'   => 'ShamsiDateBetween',
         'ir_mobile'             => 'IranianMobile',
         'ir_phone'              => 'IranianPhone',
         'ir_phone_code'         => 'IranianPhoneAreaCode',
@@ -54,8 +56,12 @@ class PersianValidationServiceProvider extends ServiceProvider
 
         foreach($this->validatorsMap as $name => $method)
         {
-            Validator::extend($name, PersianValidators::class."@validate{$method}",
+            Validator::extend($name, PersianValidators::class . "@validate{$method}",
                               __("{$langNamespace}::{$langFileName}.{$name}"));
+                              
+            if (method_exists(PersianValidators::class, "replace{$method}")) {
+                Validator::replacer($name, PersianValidators::class . "@replace{$method}");
+            }
         }
     }
 

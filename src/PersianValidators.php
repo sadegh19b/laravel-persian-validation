@@ -80,6 +80,74 @@ class PersianValidators
     }
 
     /**
+     * Validate shamsi (jalali) date
+     *
+     * @param $attribute
+     * @param $value
+     * @param $parameters
+     * @return bool
+     */
+    public function validateShamsiDate($attribute, $value, $parameters)
+    {
+        $jdate = explode('/', $value);
+        return (count($jdate) === 3 && $this->isValidjDate($jdate[0], $jdate[1], $jdate[2]));
+    }
+
+    /**
+     * Validate shamsi (jalali) date between years
+     *
+     * @param $attribute
+     * @param $value
+     * @param $parameters
+     * @return bool
+     */
+    public function validateShamsiDateBetween($attribute, $value, $parameters)
+    {
+        $jdate = explode('/', $value);
+        return $this->validateShamsiDate($attribute, $value, $parameters) && ($parameters[0] <= $jdate[0] && $parameters[1] >= $jdate[0]);
+    }
+
+    /**
+     * Replace validate message for ShamsiDateBetween
+     *
+     * @param $message
+     * @param $attribute
+     * @param $rule
+     * @param $parameters
+     * @return bool
+     */
+    public function replaceShamsiDateBetween($message, $attribute, $rule, $parameters)
+    {
+        return str_replace([':afterDate', ':beforeDate'], [$parameters[0], $parameters[1]], $message);
+    }
+
+    /**
+     * Validate a jalali date (jalali equivalent of php checkdate() function)
+     * Refer to: https://github.com/hekmatinasser/verta (v1.11.5) => Comparison Trait => isValidDate function
+     *
+     * @param int $month
+     * @param int $day
+     * @param int $year
+     * @return bool
+     */
+    private function isValidjDate($year, $month, $day) {
+        if($year < 0 || $year > 32766) {
+            return false;
+        }
+        if($month < 1 || $month > 12) {
+            return false;
+        }
+
+        $daysMonthJalali = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
+        $dayLastMonthJalali = in_array(($year % 33) , [1 , 5 , 9 , 13 ,17 , 22 , 26 , 30]) && ($month == 12) ? 30 : $daysMonthJalali[intval($month)-1];
+        if($day < 1 || $day > $dayLastMonthJalali) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
      * Validate iranian mobile number.
      *
      * @param $attribute

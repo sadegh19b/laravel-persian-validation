@@ -151,6 +151,39 @@ class PersianValidationTest extends TestCase
     }
 
     /**
+     * Unit test of shamsi date
+     *
+     * @return void
+     */
+    public function testShamsiDate()
+    {
+        $this->value = "1373/3/19";
+        $this->assertEquals(true, $this->persianValidator->validateShamsiDate($this->attribute, $this->value, $this->parameters));
+
+        $this->value = "1234";
+        $this->assertEquals(false, $this->persianValidator->validateShamsiDate($this->attribute, $this->value, $this->parameters));
+    }
+
+    /**
+     * Unit test of shamsi date between years
+     *
+     * @return void
+     */
+    public function testShamsiDateBetween()
+    {
+        $this->value = "1373/3/19";
+        $this->parameters = [1300, 1400];
+        $this->assertEquals(true, $this->persianValidator->validateShamsiDateBetween($this->attribute, $this->value, $this->parameters));
+
+        $this->value = "1401/1/1";
+        $this->parameters = [1300, 1400];
+        $this->assertEquals(false, $this->persianValidator->validateShamsiDateBetween($this->attribute, $this->value, $this->parameters));
+
+        $this->value = "1234";
+        $this->assertEquals(false, $this->persianValidator->validateShamsiDate($this->attribute, $this->value, $this->parameters));
+    }
+
+    /**
      * Unit test of iranian mobile number
      *
      * @return void

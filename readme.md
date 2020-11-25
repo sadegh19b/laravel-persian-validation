@@ -32,6 +32,8 @@ You can access to validation rules by passing the rules key according blew follo
 | persian_alpha_num | Persian alphabet and numbers |صادق۱۲۳۴
 | persian_alpha_eng_num | Persian alphabet and numbers with english numbers |صادق۱۲34
 | persian_not_accept | Doesn't accept Persian alphabet and numbers | cant be persian
+| shamsi_date | Check shamsi (jalali) date with format(Y/m/d) | 1373/3/19
+| shamsi_date_between:1300,1400 | Check shamsi (jalali) date with format(Y/m/d) between years | 1373/3/19
 | ir_mobile | Iranian mobile numbers | 00989173456789, +989173456789, 989173456789, 09173456789, 91712345678
 | ir_phone | Iranian phone numbers | 37236445
 | ir_phone_code | Iranian phone area code | 077, 021, ...
@@ -47,7 +49,7 @@ You can access to validation rules by passing the rules key according blew follo
 ### Persian Alpha
 Accept Persian language alphabet according to standard Persian, this is the way you can use this validation rule:
 
-```
+``` php
 $input = [ 'فارسی' ];
 
 $rules = [ 'persian_alpha' ];
@@ -58,7 +60,7 @@ Validator::make( $input, $rules );
 ### Persian numbers
 Validate Persian standard numbers (۰۱۲۳۴۵۶۷۸۹):
 
-```
+``` php
 $input = [ '۰۱۲۳۴۵۶۷۸۹' ];
 
 $rules = [ 'persian_num' ];
@@ -69,7 +71,7 @@ Validator::make( $input, $rules );
 ### Persian Alpha Num
 Validate Persian alpha num:
 
-```
+``` php
 $input = [ '۰فارسی۱۲۳۴۵۶۷۸۹' ];
 
 $rules = [ 'persian_alpha_num' ];
@@ -80,7 +82,7 @@ Validator::make( $input, $rules );
 ### Persian Alpha Eng Num
 Validate Persian alpha num with english num:
 
-```
+``` php
 $input = [ '۰فارسی۱۲۳۴۵6789' ];
 
 $rules = [ 'persian_alpha_eng_num' ];
@@ -88,10 +90,32 @@ $rules = [ 'persian_alpha_eng_num' ];
 Validator::make( $input, $rules );
 ```
 
+### Shamsi Date
+Validate shamsi (jalali) date:
+
+``` php
+$input = [ '1373/3/19' ];
+
+$rules = [ 'shamsi_date' ];
+
+Validator::make( $input, $rules );
+```
+
+### Shamsi Date Between
+Validate shamsi (jalali) date between years:
+
+``` php
+$input = [ '1373/3/19' ];
+
+$rules = [ 'shamsi_date_between:1300,1400' ];
+
+Validator::make( $input, $rules );
+```
+
 ### Iran mobile phone
 Validate Iranian mobile numbers (Irancell, Rightel, Hamrah-e-aval, ...):
 
-```
+``` php
 $input = [ '09381234567' ];
 
 $rules = [ 'ir_mobile' ];
@@ -102,7 +126,7 @@ Validator::make( $input, $rules );
 ### Sheba number
 Validate Iranian bank sheba numbers:
 
-```
+``` php
 $input = [ 'IR062960000000100324200001' ];
 
 $rules = [ 'ir_sheba' ];
@@ -113,7 +137,7 @@ Validator::make( $input, $rules );
 ### Iran national code
 Validate Iranian national code (Melli Code):
 
-```
+``` php
 $input = [ '3240175800' ];
 
 $rules = [ 'ir_national_code' ];
@@ -124,7 +148,7 @@ Validator::make( $input, $rules );
 ### Payment card number
 Validate Iranian bank payment card numbers:
 
-```
+``` php
 $input = [ '6274129005473742' ];
 
 $rules = [ 'ir_card_number' ];
@@ -135,7 +159,7 @@ Validator::make( $input, $rules );
 ### Iran postal code
 Validate Iranian postal code:
 
-```
+``` php
 $input = [ '167197-35744' ];
 
 $rules = [ 'ir_postal_code' ];
@@ -165,6 +189,10 @@ Validator::make( $request->all(), [
   'city'          => 'persian_alpha_num|min:10',  // Validate persian alphabet & numbers at least 10 digit accepted
 
   'address'       => 'persian_alpha_eng_num',  // Validate persian alphabet & numbers with english numbers
+
+  'birthday'      => 'shamsi_date', // Validate shamsi date 
+
+  'start_date'    => 'shamsi_date_between:1300,1400', // Validate shamsi date between years
 
   'mobile'        => 'ir_mobile', // Validate mobile number
 
