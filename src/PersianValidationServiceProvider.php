@@ -27,7 +27,7 @@ class PersianValidationServiceProvider extends ServiceProvider
         'ir_phone_code'         => 'IranianPhoneAreaCode',
         'ir_phone_with_code'    => 'IranianPhoneWithAreaCode',
         'ir_postal_code'        => 'IranianPostalCode',
-        'ir_card_number'        => 'IranianBankCardNumber',
+        'ir_bank_card_number'   => 'IranianBankCardNumber',
         'ir_sheba'              => 'IranianBankSheba',
         'ir_national_code'      => 'IranianNationalCode',
         'a_url'                 => 'CheckUrl',

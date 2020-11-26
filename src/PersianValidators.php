@@ -89,6 +89,10 @@ class PersianValidators
      */
     public function validateShamsiDate($attribute, $value, $parameters)
     {
+        if (isset($parameters[0]) && $parameters[0] == 'persian') {
+            $value = $this->faToEnNumbers($value);
+        }
+
         $jdate = explode('/', $value);
         return (count($jdate) === 3 && $this->isValidjDate($jdate[0], $jdate[1], $jdate[2]));
     }
@@ -103,6 +107,14 @@ class PersianValidators
      */
     public function validateShamsiDateBetween($attribute, $value, $parameters)
     {
+        if (!isset($parameters[0]) && !isset($parameters[1])) {
+            return false;
+        }
+        
+        if (isset($parameters[2]) && $parameters[2] == 'persian') {
+            $value = $this->faToEnNumbers($value);
+        }
+
         $jdate = explode('/', $value);
         return $this->validateShamsiDate($attribute, $value, $parameters) && ($parameters[0] <= $jdate[0] && $parameters[1] >= $jdate[0]);
     }
@@ -148,6 +160,20 @@ class PersianValidators
     }
 
     /**
+     * Convert persian numbers to english numbers
+     *
+     * @param string $string
+     * @return string
+     */
+    private function faToEnNumbers($string)
+    {
+        $fa_num = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+        $en_num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+        return str_replace($fa_num, $en_num, $string);
+    }
+
+    /**
      * Validate iranian mobile number.
      *
      * @param $attribute
@@ -157,6 +183,18 @@ class PersianValidators
      */
     public function validateIranianMobile($attribute, $value, $parameters)
     {
+        $paramsPatternMap = [
+            'zero_code'    => '/^(00989){1}[0-9]{9}+$/',
+            'plus'         => '/^(\+989){1}[0-9]{9}+$/',
+            'code'         => '/^(989){1}[0-9]{9}+$/',
+            'zero'         => '/^(09){1}[0-9]{9}+$/',
+            'without_zero' => '/^(9){1}[0-9]{9}+$/',
+        ];
+
+        if (isset($parameters[0]) && in_array($parameters[0], array_keys($paramsPatternMap))) {
+            return preg_match($paramsPatternMap[$parameters[0]], $value);
+        }
+
         return (preg_match('/^(((98)|(\+98)|(0098)|0)(9){1}[0-9]{9})+$/', $value) || preg_match('/^(9){1}[0-9]{9}+$/', $value))? true : false;
     }
 
@@ -211,6 +249,15 @@ class PersianValidators
      */
     public function validateIranianPostalCode($attribute, $value, $parameters)
     {
+        $paramsPatternMap = [
+            'seprate'         => '/\b(?!(\d)\1{3})[13-9]{4}[1346-9]-[013-9]{5}\b/',
+            'without_seprate' => '/\b(?!(\d)\1{3})[13-9]{4}[1346-9][013-9]{5}\b/',
+        ];
+
+        if (isset($parameters[0]) && in_array($parameters[0], array_keys($paramsPatternMap))) {
+            return preg_match($paramsPatternMap[$parameters[0]], $value);
+        }
+
         return preg_match("/\b(?!(\d)\1{3})[13-9]{4}[1346-9]-?[013-9]{5}\b/", $value);
     }
 
@@ -225,6 +272,14 @@ class PersianValidators
      */
     function validateIranianBankCardNumber($attribute, $value, $parameters)
     {
+        if (isset($parameters[0]) && $parameters[0] == 'seprate') {
+            $value = str_replace('-', '', $value);
+        }
+
+        if (isset($parameters[0]) && $parameters[0] == 'space') {
+            $value = str_replace(' ', '', $value);
+        }
+
         if (!preg_match('/^\d{16}$/', $value)) {
             return false;
         }

@@ -33,13 +33,24 @@ You can access to validation rules by passing the rules key according blew follo
 | persian_alpha_eng_num | Persian alphabet and numbers with english numbers |صادق۱۲34
 | persian_not_accept | Doesn't accept Persian alphabet and numbers | cant be persian
 | shamsi_date | Check shamsi (jalali) date with format(Y/m/d) | 1373/3/19
+| shamsi_date:persian | Check shamsi (jalali) date with format(Y/m/d) with persian number | ۱۳۷۳/۳/۱۹
 | shamsi_date_between:1300,1400 | Check shamsi (jalali) date with format(Y/m/d) between years | 1373/3/19
+| shamsi_date_between:1300,1400,persian | Check shamsi (jalali) date with format(Y/m/d) between years with persian number | ۱۳۷۳/۳/۱۹
 | ir_mobile | Iranian mobile numbers | 00989173456789, +989173456789, 989173456789, 09173456789, 91712345678
+| ir_mobile:zero_code | Iranian mobile numbers with double zero country code | 00989173456789
+| ir_mobile:plus | Iranian mobile numbers with plus country code | +989173456789
+| ir_mobile:code | Iranian mobile numbers with country code | 989173456789
+| ir_mobile:zero | Iranian mobile numbers starts with zero | 09173456789
+| ir_mobile:without_zero | Iranian mobile numbers without first zero | 9173456789
 | ir_phone | Iranian phone numbers | 37236445
 | ir_phone_code | Iranian phone area code | 077, 021, ...
 | ir_phone_with_code | Iranian phone number with area code | 07737236445
-| ir_postal_code | Iranian postal code. | 1619735744, 16197-35744
-| ir_card_number | Iranian bank payment card numbers. | 6274129005473742
+| ir_postal_code | Iranian postal code | 1619735744, 16197-35744
+| ir_postal_code:seprate | Iranian postal code sperated | 16197-35744
+| ir_postal_code:without_seprate | Iranian postal code without seprate | 1619735744
+| ir_bank_card_number | Iranian bank payment card numbers | 6274129005473742
+| ir_bank_card_number:seprate | Iranian bank payment card numbers seprate between digits with dash | 6274-1290-0547-3742
+| ir_bank_card_number:space | Iranian bank payment card numbers seprate between digits with space | 6274 1290 0547 3742
 | ir_sheba | Iranian Sheba numbers | IR062960000000100324200001
 | ir_national_code | Iran melli code | 0013542419
 | a_url | Check correct URL | http://google.com, https://www.google.com
@@ -151,7 +162,7 @@ Validate Iranian bank payment card numbers:
 ``` php
 $input = [ '6274129005473742' ];
 
-$rules = [ 'ir_card_number' ];
+$rules = [ 'ir_bank_card_number' ];
 
 Validator::make( $input, $rules );
 ```
@@ -212,7 +223,7 @@ Validator::make( $request->all(), [
   
   'phone_code'    => 'ir_phone_with_code', // Validate phone number with area code
 
-  'card_number'   => 'ir_card_number', // Validate payment card number
+  'card_number'   => 'ir_bank_card_number', // Validate payment card number
 
   'postal_code'   => 'ir_postal_code' // validate iran postal code format
 
