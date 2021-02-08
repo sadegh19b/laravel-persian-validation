@@ -273,10 +273,16 @@ class PersianValidators
     function validateIranianBankCardNumber($attribute, $value, $parameters)
     {
         if (isset($parameters[0]) && $parameters[0] == 'seprate') {
+            if (!preg_match('/^\d{4}-\d{4}-\d{4}-\d{4}$/', $value)) {
+                return false;
+            }
             $value = str_replace('-', '', $value);
         }
 
         if (isset($parameters[0]) && $parameters[0] == 'space') {
+            if (!preg_match('/^\d{4}\s\d{4}\s\d{4}\s\d{4}$/', $value)) {
+                return false;
+            }
             $value = str_replace(' ', '', $value);
         }
 

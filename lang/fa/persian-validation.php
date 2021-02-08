@@ -16,7 +16,7 @@ return [
     'ir_phone_code'	                => $incorrectMsg,
     'ir_phone_with_code'	        => ':attribute باید بهمراه کد استان وارد شود.',
     'ir_postal_code'			    => $invalidMsg,
-    'ir_card_number' 				=> $invalidMsg,
+    'ir_bank_card_number' 			=> $invalidMsg,
     'ir_sheba'						=> $invalidMsg,
     'ir_national_code' 				=> $invalidMsg,
     'a_url'						    => $incorrectMsg,

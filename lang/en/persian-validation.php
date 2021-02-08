@@ -13,7 +13,7 @@ return [
     'ir_phone_code'	                => 'The :attribute must be a iranian phone area code number.',
     'ir_phone_with_code'	        => 'The :attribute must be a iranian phone number with area code.',
     'ir_postal_code'			    => 'The :attribute must be a iranian postal code.',
-    'ir_card_number'			    => 'The :attribute must be a valid iranian payment card number.',
+    'ir_bank_card_number'			=> 'The :attribute must be a valid iranian payment card number.',
     'ir_sheba'					    => 'The :attribute must be a iranian sheba number.',
     'ir_national_code'			    => 'The :attribute must be a iranian national code.',
 	'a_url'						    => 'The :attribute is an invalid url.',
