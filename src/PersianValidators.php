@@ -315,11 +315,14 @@ class PersianValidators
     {
         $ibanReplaceValues = array();
 
-        if (!empty($value))
+        if (! empty($value))
         {
-            $value = preg_replace('/[\W_]+/', '', strtoupper($value));
+            $_value = preg_replace('/[\W_]+/', '', strtoupper($value));
 
-            if (( 4 > strlen($value) ||  strlen($value) > 34 ) || ( is_numeric($value [ 0 ])  || is_numeric($value [ 1 ]) ) || ( ! is_numeric($value [ 2 ]) || ! is_numeric($value [ 3 ]) )) {
+            if ($_value !== strtoupper($value))
+                return false;
+
+            if (( 4 > strlen($_value) ||  strlen($_value) > 34 ) || ( is_numeric($_value [ 0 ])  || is_numeric($_value [ 1 ]) ) || ( ! is_numeric($_value [ 2 ]) || ! is_numeric($_value [ 3 ]) )) {
                 return false;
             }
 
@@ -329,7 +332,7 @@ class PersianValidators
                 $ibanReplaceValues[] = strval($tempvalue);
             }
 
-            $tmpIBAN = substr($value, 4) . substr($value, 0, 4);
+            $tmpIBAN = substr($_value, 4) . substr($_value, 0, 4);
             $tmpIBAN = str_replace($ibanReplaceChars, $ibanReplaceValues, $tmpIBAN);
             $tmpValue = intval(substr($tmpIBAN, 0, 1));
 
