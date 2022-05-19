@@ -93,7 +93,7 @@ class PersianValidators
             $value = $this->faToEnNumbers($value);
         }
 
-        $jdate = explode('/', $value);
+        $jdate = preg_split('/(\-|\/)/', $value);
         return (count($jdate) === 3 && $this->isValidjDate($jdate[0], $jdate[1], $jdate[2]));
     }
 
@@ -115,7 +115,7 @@ class PersianValidators
             $value = $this->faToEnNumbers($value);
         }
 
-        $jdate = explode('/', $value);
+        $jdate = preg_split('/(\-|\/)/', $value);
         return $this->validateShamsiDate($attribute, $value, $parameters) && ($parameters[0] <= $jdate[0] && $parameters[1] >= $jdate[0]);
     }
 
