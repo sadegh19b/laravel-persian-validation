@@ -42,16 +42,17 @@ class PersianValidationServiceProvider extends ServiceProvider
     public function boot()
     {
         $vendorLangPath = $langLoaderPath = __DIR__.'/../lang/';
+        $laravelVersion = explode('.', app()->version());
         // In Laravel 9+, lang files are in root path of app.
-        $baseLangPath = base_path('lang/');
+        $langPath = $laravelVersion[0] >= '9' ? base_path('lang/') : resource_path('lang/');
         $langFileName = 'persian-validation';
         $langNamespace = 'sbpValidation';
 
         // publish language file to resources/lang/{AppLocale}/persian-validation.php
-        $this->publishes([ $vendorLangPath => $resourceLangPath ]);
+        $this->publishes([ $vendorLangPath => $langPath ]);
 
-        if (count(glob($resourceLangPath . "*/{$langFileName}.php")) !== 0)
-            $langLoaderPath = $resourceLangPath;
+        if (count(glob($langPath . "*/{$langFileName}.php")) !== 0)
+            $langLoaderPath = $langPath;
 
         $this->loadTranslationsFrom($langLoaderPath, $langNamespace);
 
