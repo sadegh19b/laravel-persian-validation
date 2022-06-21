@@ -32,10 +32,10 @@ You can access to validation rules by passing the rules key according blew follo
 | persian_alpha_num | Persian alphabet and numbers |صادق۱۲۳۴
 | persian_alpha_eng_num | Persian alphabet and numbers with english numbers |صادق۱۲34
 | persian_not_accept | Doesn't accept Persian alphabet and numbers | cant be persian
-| shamsi_date | Check shamsi (jalali) date with format(Y/m/d) | 1373/3/19
-| shamsi_date:persian | Check shamsi (jalali) date with format(Y/m/d) with persian number | ۱۳۷۳/۳/۱۹
-| shamsi_date_between:1300,1400 | Check shamsi (jalali) date with format(Y/m/d) between years | 1373/3/19
-| shamsi_date_between:1300,1400,persian | Check shamsi (jalali) date with format(Y/m/d) between years with persian number | ۱۳۷۳/۳/۱۹
+| shamsi_date | Check shamsi (jalali) date with format(Y/m/d) or format(Y-m-d)  | 1373/3/19
+| shamsi_date:persian | Check shamsi (jalali) date with format(Y/m/d) or format(Y-m-d) with persian number | ۱۳۷۳/۳/۱۹
+| shamsi_date_between:1300,1400 | Check shamsi (jalali) date with format(Y/m/d) or format(Y-m-d) between years | 1373/3/19
+| shamsi_date_between:1300,1400,persian | Check shamsi (jalali) date with format(Y/m/d) or format(Y-m-d) between years with persian number | ۱۳۷۳/۳/۱۹
 | ir_mobile | Iranian mobile numbers | 00989173456789, +989173456789, 989173456789, 09173456789, 91712345678
 | ir_mobile:zero_code | Iranian mobile numbers with double zero country code | 00989173456789
 | ir_mobile:plus | Iranian mobile numbers with plus country code | +989173456789
