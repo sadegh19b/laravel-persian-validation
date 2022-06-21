@@ -42,7 +42,8 @@ class PersianValidationServiceProvider extends ServiceProvider
     public function boot()
     {
         $vendorLangPath = $langLoaderPath = __DIR__.'/../lang/';
-        $resourceLangPath = resource_path('lang/');
+        // In Laravel 9+, lang files are in root path of app.
+        $baseLangPath = base_path('lang/');
         $langFileName = 'persian-validation';
         $langNamespace = 'sbpValidation';
 
