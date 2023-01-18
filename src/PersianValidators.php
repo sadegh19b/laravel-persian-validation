@@ -76,7 +76,7 @@ class PersianValidators
             return !preg_match("/[\x{600}-\x{6FF}]/u", $value);
         }
 
-        return false;
+        return true;
     }
 
     /**
