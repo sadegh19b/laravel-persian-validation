@@ -368,11 +368,7 @@ class PersianValidators
 
         $sub = 0;
 
-        if (strlen($value) == 8) {
-            $value = '00' . $value;
-        } elseif (strlen($value) == 9) {
-            $value = '0' . $value;
-        }
+        $value = str_pad($value, 10, '0', STR_PAD_LEFT);
 
         for ($i = 0; $i <= 8; $i++) {
             $sub = $sub + ( $value[$i] * ( 10 - $i ) );
@@ -384,11 +380,7 @@ class PersianValidators
             $control = 11 - ( $sub % 11 );
         }
 
-        if ($value[9] == $control) {
-            return true;
-        } else {
-            return false;
-        }
+        return (int) $value[9] === $control;
     }
 
     /**
