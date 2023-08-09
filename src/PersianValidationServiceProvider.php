@@ -32,6 +32,7 @@ class PersianValidationServiceProvider extends ServiceProvider
         'ir_national_code'      => 'IranianNationalCode',
         'a_url'                 => 'CheckUrl',
         'a_domain'              => 'CheckDomain',
+        'ir_company_id'         => 'IranianCompanyId',
     ];
 
     /**

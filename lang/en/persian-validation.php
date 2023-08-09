@@ -18,4 +18,5 @@ return [
     'ir_national_code'			    => 'The :attribute must be a iranian national code.',
 	'a_url'						    => 'The :attribute is an invalid url.',
 	'a_domain'					    => 'The :attribute is an invalid domain.',
+    'ir_company_id' 			    => 'The :attribute must be a iranian company id.',
 ];
