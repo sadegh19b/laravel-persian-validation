@@ -419,45 +419,25 @@ class PersianValidators
      */
     public function validateIranianCompanyId($attribute, $value, $parameters)
     {
-        if (empty($value))
+        if (! preg_match('/^\d{11}$/', $value) || preg_match('/^(\d)\1{10}$/', $value)) {
             return false;
+        }
 
-        $lengthId = strlen($value);
-        if($lengthId != 11)
-            return false;
-
-        $invalidIds = array(
-            00000000000,
-            11111111111,
-            22222222222,
-            33333333333,
-            44444444444,
-            55555555555,
-            66666666666,
-            77777777777,
-            88888888888,
-            99999999999
-        );
-
-        if (in_array($value, $invalidIds))
-            return false;
-
-        $multiplier = array(29, 27, 23, 19, 17, 29, 27, 23, 19, 17);
+        $multiplier = [29, 27, 23, 19, 17, 29, 27, 23, 19, 17];
         $checkNumber = substr($value, 10, 1);
         $decimalNumber = substr($value, 9, 1);
         $multiplication = $decimalNumber + 2;
         $sum = 0;
 
-        for ($i = 0; $i < 10; $i++)
+        for ($i = 0; $i < 10; $i++) {
             $sum += (substr($value, $i, 1) + $multiplication) * $multiplier[$i];
+        }
 
         $remain = $sum % 11;
-        if($remain == 10)
+        if ($remain == 10) {
             $remain = 0;
+        }
 
-        if ($remain == $checkNumber)
-            return true;
-        else
-            return false;
+        return $remain == $checkNumber;
     }
 }
