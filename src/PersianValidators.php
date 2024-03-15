@@ -239,8 +239,7 @@ class PersianValidators
 
     /**
      * Validate Iran postal code format.
-     * Old pattern /^(\d{5}-?\d{5})$/
-     * New pattern ref: https://stackoverflow.com/questions/48719799/iranian-postal-code-validation
+     * New Ref: https://blog.tapin.ir/%D9%85%D8%B9%D8%B1%D9%81%DB%8C-%D8%B3%D8%A7%D8%AE%D8%AA%D8%A7%D8%B1-%DA%A9%D8%AF-%D8%B1%D9%87%DA%AF%DB%8C%D8%B1%DB%8C-%D9%88-%DA%A9%D8%AF%D9%BE%D8%B3%D8%AA%DB%8C/
      *
      * @param $attribute
      * @param $value
@@ -250,15 +249,15 @@ class PersianValidators
     public function validateIranianPostalCode($attribute, $value, $parameters)
     {
         $paramsPatternMap = [
-            'seprate'         => '/\b(?!(\d)\1{3})[13-9]{4}[1346-9]-[013-9]{5}\b/',
-            'without_seprate' => '/\b(?!(\d)\1{3})[13-9]{4}[1346-9][013-9]{5}\b/',
+            'seprate'         => '/\b(?!(\d)\1{3})[13-9]{5}-[0-9]{5}\b/',
+            'without_seprate' => '/\b(?!(\d)\1{3})[13-9]{5}[0-9]{5}\b/',
         ];
 
         if (isset($parameters[0]) && in_array($parameters[0], array_keys($paramsPatternMap))) {
             return preg_match($paramsPatternMap[$parameters[0]], $value);
         }
 
-        return preg_match("/\b(?!(\d)\1{3})[13-9]{4}[1346-9]-?[013-9]{5}\b/", $value);
+        return preg_match("/\b(?!(\d)\1{3})[13-9]{5}-?[0-9]{5}\b/", $value);
     }
 
     /**

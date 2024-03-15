@@ -49,7 +49,7 @@ class PersianValidationServiceProvider extends ServiceProvider
         $langFileName = 'persian-validation';
         $langNamespace = 'sbpValidation';
 
-        // publish language file to resources/lang/{AppLocale}/persian-validation.php
+        // Publish language file to resources/lang/{AppLocale}/persian-validation.php
         $this->publishes([ $vendorLangPath => $langPath ]);
 
         if (count(glob($langPath . "*/{$langFileName}.php")) !== 0)
