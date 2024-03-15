@@ -34,13 +34,9 @@ class PersianValidationTest extends TestCase
 	 */
 	protected $persianValidator;
 
-    /**
-     * PersianValidationTest constructor.
-     */
-    public function __construct()
+    protected function setUp(): void
     {
         $this->persianValidator = new PersianValidators();
-        parent::__construct();
     }
 
     /**
