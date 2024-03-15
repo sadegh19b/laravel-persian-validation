@@ -462,4 +462,30 @@ class PersianValidationTest extends TestCase
         $this->value = "11619735744";
         $this->assertEquals(false, $this->persianValidator->validateIranianPostalCode($this->attribute, $this->value, $this->parameters));
     }
+
+    /**
+     * Unit test for Iranian company ID validation.
+     *
+     * @return void
+     */
+    public function testIranCompanyID()
+    {
+        // Valid Iranian company ID
+        $this->assertTrue($this->persianValidator->validateIranianCompanyId($this->attribute, "14007650912", $this->parameters));
+
+        // Invalid Iranian company ID: incorrect length
+        $this->assertFalse($this->persianValidator->validateIranianCompanyId($this->attribute, "1234567890", $this->parameters));
+
+        // Invalid Iranian company ID: contains non-numeric characters
+        $this->assertFalse($this->persianValidator->validateIranianCompanyId($this->attribute, "1400765091a", $this->parameters));
+
+        // Invalid Iranian company ID: repetitive numbers
+        $this->assertFalse($this->persianValidator->validateIranianCompanyId($this->attribute, "11111111111", $this->parameters));
+
+        // Invalid Iranian company ID: checksum mismatch
+        $this->assertFalse($this->persianValidator->validateIranianCompanyId($this->attribute, "14007650911", $this->parameters));
+
+        // Invalid Iranian company ID: unexpected decimal number
+        $this->assertFalse($this->persianValidator->validateIranianCompanyId($this->attribute, "1400765091X", $this->parameters));
+    }
 }
