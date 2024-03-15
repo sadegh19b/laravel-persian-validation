@@ -4,8 +4,8 @@ Laravel Persian Validation Provides validation for Persian alphabet, number and 
 
 ## Requirement
 
-* Laravel 6, 7, 8, 9
-* PHP 7.4 , 8
+* Laravel 6, 7, 8, 9, 10, 11
+* PHP 7.4 , 8, 8.1, 8.2
 
 ## Install
 
@@ -15,8 +15,9 @@ Via Composer
 composer require sadegh19b/laravel-persian-validation
 ```
 
-## vendor:publish
-You can run vendor:publish command to have custom lang file of package on this path ( resources/lang/{locale}/persian-validation.php )
+## Publishing Language Files
+To publish the language files for custom validation messages, execute the following command. This will place the file at resources/lang/{locale}/persian-validation.php.
+
 ``` bash
 php artisan vendor:publish --provider="Sadegh19b\LaravelPersianValidation\PersianValidationServiceProvider"
 ```
