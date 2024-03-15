@@ -303,7 +303,7 @@ class PersianValidators
     }
 
     /**
-     * Validate iranian bank sheba number.
+     * Validate iranian bank sheba number (IBAN).
      *
      * @param $attribute
      * @param $value
@@ -312,43 +312,22 @@ class PersianValidators
      */
     public function validateIranianBankSheba($attribute, $value, $parameters)
     {
-        $ibanReplaceValues = array();
+        $value = preg_replace('/[\W_]+/', '', strtoupper($value));
 
-        if (! empty($value))
-        {
-            $_value = preg_replace('/[\W_]+/', '', strtoupper($value));
-
-            if ($_value !== strtoupper($value))
-                return false;
-
-            if (( 4 > strlen($_value) ||  strlen($_value) > 34 ) || ( is_numeric($_value [ 0 ])  || is_numeric($_value [ 1 ]) ) || ( ! is_numeric($_value [ 2 ]) || ! is_numeric($_value [ 3 ]) )) {
-                return false;
-            }
-
-            $ibanReplaceChars = range('A', 'Z');
-
-            foreach (range(10, 35) as $tempvalue) {
-                $ibanReplaceValues[] = strval($tempvalue);
-            }
-
-            $tmpIBAN = substr($_value, 4) . substr($_value, 0, 4);
-            $tmpIBAN = str_replace($ibanReplaceChars, $ibanReplaceValues, $tmpIBAN);
-            $tmpValue = intval(substr($tmpIBAN, 0, 1));
-
-            for ($i = 1; $i < strlen($tmpIBAN); $i++) {
-                $tmpValue *= 10;
-                $tmpValue += intval(substr($tmpIBAN, $i, 1));
-                $tmpValue %= 97;
-            }
-
-            if ($tmpValue != 1) {
-                return false;
-            }
-
-            return true;
+        if (! preg_match('/^[A-Z]{2}\d{2}[A-Z0-9]{0,30}$/', $value)) {
+            return false;
         }
 
-        return false;
+        $ibanReplaceValues = array_combine(range('A', 'Z'), range(10, 35));
+        $tmpIBAN = substr($value, 4) . substr($value, 0, 4);
+        $tmpIBAN = strtr($tmpIBAN, $ibanReplaceValues);
+
+        $tmpValue = 0;
+        foreach (str_split($tmpIBAN) as $char) {
+            $tmpValue = ($tmpValue * 10 + (int)$char) % 97;
+        }
+
+        return $tmpValue == 1;
     }
 
    /**
