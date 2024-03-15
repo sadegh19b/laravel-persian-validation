@@ -21,4 +21,5 @@ return [
     'ir_national_code' 				=> $invalidMsg,
     'a_url'						    => $incorrectMsg,
     'a_domain'					    => $incorrectMsg,
+    'ir_company_id' 				=> $invalidMsg,
 ];

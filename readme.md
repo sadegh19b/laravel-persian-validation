@@ -55,6 +55,7 @@ You can access to validation rules by passing the rules key according blew follo
 | ir_national_code | Iran melli code | 0013542419
 | a_url | Check correct URL | http://google.com, https://www.google.com
 | a_domain | Check correct Domain | www.google.com, google.com
+| ir_company_id | Iranian National Legal Entity Identifier (Shenase Melli Ashkhas Hoghoghi) | 14007650912
 
 
 ### Persian Alpha
@@ -187,6 +188,17 @@ Validator::make( $input, $rules );
 
 ```
 
+### Iran company id
+Validate Iranian National Legal Entity Identifier (Shenase Melli Ashkhas Hoghoghi)
+
+``` php
+$input = [ '14007650912' ];
+
+$rules = [ 'ir_company_id' ];
+
+Validator::make( $input, $rules );
+```
+
 ## More
 Full list of Persian Validation rules usage:
 
@@ -226,6 +238,8 @@ Validator::make( $request->all(), [
   'card_number'   => 'ir_bank_card_number', // Validate payment card number
 
   'postal_code'   => 'ir_postal_code' // validate iran postal code format
+  
+  'company_id'    => 'ir_company_id',  // Iranian National Legal Entity Identifier (Shenase Melli Ashkhas Hoghoghi)
 
 ]);
 ```
