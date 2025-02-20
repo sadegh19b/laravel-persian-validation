@@ -340,6 +340,8 @@ class PersianValidators
     */
     public function validateIranianNationalCode($attribute, $value, $parameters)
     {
+        $value = strval($value);
+
         if (!preg_match('/^\d{8,10}$/', $value) || preg_match('/^(.)\1{9}$/', $value)) {
             return false;
         }
