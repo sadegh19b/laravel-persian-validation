@@ -1,20 +1,31 @@
 {
     "name": "sadegh19b/laravel-persian-validation",
+    "description": "A comprehensive Laravel validation package for Persian text, numbers, dates, and Iranian national identifiers",
+    "keywords": [
+        "laravel",
+        "validation",
+        "persian",
+        "farsi",
+        "validate",
+        "validator"
+    ],
     "license": "MIT",
-    "description": "A persian alphabet, number and etc. validation package for laravel",
-    "keywords": ["laravel", "validation", "persian", "farsi", "validate", "validator"],
+    "homepage": "https://github.com/sadegh19b/laravel-persian-validation",
     "authors": [
         {
             "name": "Sadegh Barzegar",
-            "email": "sadegh19b@gmail.com"
+            "email": "sadegh19b@gmail.com",
+            "homepage": "https://github.com/sadegh19b",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": "~7.4|^8.0|^8.1|^8.2",
-        "illuminate/support": "^6|^7|^8|^9|^10|^11|^12"
+        "php": ">=8.2",
+        "illuminate/support": "^11.0|^12.0"
     },
-    "require-dev" : {
-        "phpunit/phpunit": "^8|^9|^10"
+    "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "orchestra/testbench": "^9.0"
     },
     "autoload": {
         "psr-4": {
@@ -23,8 +34,12 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Sadegh19b\\LaravelPersianValidation\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
     "extra": {
         "laravel": {
