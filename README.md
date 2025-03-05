@@ -226,5 +226,8 @@ $rules = [
 - `convertPersianNumbers` is a boolean parameter that converts Persian numbers to English numbers.
   the default is `false`.
 
+- `separator` is a string parameter that separates the numbers in the validation rules.
+  the default is `null`, and means does not use separator. (Allows: `/`, `|`, `-`, `_`, `*`, `.`, `,`, `space`)
+
 ## License
 The Laravel Persian Validation package is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT). Please see [License File](LICENSE.md) for more information.
