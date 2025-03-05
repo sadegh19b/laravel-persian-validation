@@ -53,7 +53,6 @@ class IranianPostalCode implements ValidationRule
 
         if (! preg_match("/\b(?!(\d)\1{3})[13-9]{5}{$separator}[0-9]{5}\b/", $value)) {
             $fail(Helper::translationKey($failMessage))->translate([
-                'attribute' => $attribute,
                 'separator' => Helper::translateSpaceSeparator($separator),
             ]);
         }

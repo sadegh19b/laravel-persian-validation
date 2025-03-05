@@ -35,9 +35,7 @@ class PersianNumber implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if (! preg_match('/^[۰-۹٠-٩]+$/u', (string) $value)) {
-            $fail(Helper::translationKey('persian_num'))->translate([
-                'attribute' => $attribute
-            ]);
+            $fail(Helper::translationKey('persian_num'))->translate();
         }
     }
 }

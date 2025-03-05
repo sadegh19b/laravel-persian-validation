@@ -51,7 +51,6 @@ class IranianPhoneAreaCode implements ValidationRule
 
         if (! in_array($value, Helper::getIranianPhoneAreaCodes(), true)) {
             $fail(Helper::translationKey('ir_phone_area_code'))->translate([
-                'attribute' => $attribute,
                 'example'   => '021',
             ]);
         }

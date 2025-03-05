@@ -34,9 +34,7 @@ class PersianNotAccept implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if (preg_match('/[\p{Arabic}\x{200C}،٫«»٪]/u', (string) $value)) {
-            $fail(Helper::translationKey('persian_not_accept'))->translate([
-                'attribute' => $attribute
-            ]);
+            $fail(Helper::translationKey('persian_not_accept'))->translate();
         }
     }
 }

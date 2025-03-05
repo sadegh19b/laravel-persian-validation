@@ -46,7 +46,6 @@ class PersianDate implements ValidationRule
 
         if (! Helper::validatePersianDate($value, $this->separator)) {
             $fail(Helper::translationKey('persian_date'))->translate([
-                'attribute' => $attribute,
                 'example' => Helper::persianDateExample($this->separator),
             ]);
         }

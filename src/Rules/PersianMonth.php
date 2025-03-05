@@ -31,7 +31,6 @@ class PersianMonth implements ValidationRule
 
         if (! in_array((string) $value, $persianMonths, true)) {
             $fail(Helper::translationKey('persian_month'))->translate([
-                'attribute' => $attribute,
                 'months' => implode(', ', $persianMonths),
             ]);
         }

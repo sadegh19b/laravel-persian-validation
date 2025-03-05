@@ -53,7 +53,6 @@ class IranianBankCardNumber implements ValidationRule
             ! $this->isValidCardNumber(preg_replace("/{$separator}/", '', $value))
         ) {
             $fail(Helper::translationKey($failMessage))->translate([
-                'attribute' => $attribute,
                 'separator' => Helper::translateSpaceSeparator($separator),
             ]);
         }

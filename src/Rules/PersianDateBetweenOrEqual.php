@@ -64,7 +64,6 @@ class PersianDateBetweenOrEqual implements ValidationRule
             $cleanValue < $cleanStartDate || $cleanValue > $cleanEndDate
         ) {
             $fail(Helper::translationKey('persian_date_between_or_equal'))->translate([
-                'attribute' => $attribute,
                 'startDate' => $this->startDate,
                 'endDate'   => $this->endDate,
             ]);

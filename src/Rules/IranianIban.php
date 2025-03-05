@@ -68,7 +68,6 @@ class IranianIban implements ValidationRule
             ! $this->isValidIban(preg_replace("/{$separator}/", '', $value))
         ) {
             $fail(Helper::translationKey($failMessage))->translate([
-                'attribute' => $attribute,
                 'separator' => Helper::translateSpaceSeparator($separator),
             ]);
         }

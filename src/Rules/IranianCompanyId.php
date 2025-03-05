@@ -54,9 +54,7 @@ class IranianCompanyId implements ValidationRule
         if (! preg_match('/^(?!(\d)\1{10}$)[0-9]{11}$/', $value) ||
             ! $this->isValidCompanyId($value)
         ) {
-            $fail(Helper::translationKey('ir_company_id'))->translate([
-                'attribute' => $attribute,
-            ]);
+            $fail(Helper::translationKey('ir_company_id'))->translate();
         }
     }
 

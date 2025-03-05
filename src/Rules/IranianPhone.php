@@ -108,7 +108,6 @@ class IranianPhone implements ValidationRule
 
         if (! preg_match("/^{$pattern}$/i", $value)) {
             $fail(Helper::translationKey($failMessage))->translate([
-                'attribute' => $attribute,
                 'example'   => $example,
             ]);
         }

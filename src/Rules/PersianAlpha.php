@@ -29,9 +29,7 @@ class PersianAlpha implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if (! preg_match('/^[\p{Arabic}\x{200C}\s،؛؟!٬٫()«»٪]+$/u', (string) $value) || preg_match('/[0-9۰-۹٠-٩]/u', (string) $value)) {
-            $fail(Helper::translationKey('persian_alpha'))->translate([
-                'attribute' => $attribute
-            ]);
+            $fail(Helper::translationKey('persian_alpha'))->translate();
         }
     }
 }

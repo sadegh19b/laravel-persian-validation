@@ -61,7 +61,6 @@ class PersianDateBetweenOrEqualYear implements ValidationRule
             $cleanValueYear < $this->startYear || $cleanValueYear > $this->endYear
         ) {
             $fail(Helper::translationKey('persian_date_between_or_equal_year'))->translate([
-                'attribute' => $attribute,
                 'startYear' => $this->startYear,
                 'endYear'   => $this->endYear,
             ]);
