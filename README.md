@@ -211,7 +211,7 @@ $rules = [
   the default is `false`.
 
 - `separator` is a string parameter that separates the numbers in the validation rules.
-  the default is `-`. (Allows: `/`, `|`, `-`, `_`, `*`, `.`, `,`, `space`)
+  the default is `null`, and means does not use separator. (Allows: `/`, `|`, `-`, `_`, `*`, `.`, `,`, `space`)
 
 - `withPrefix` is a boolean parameter that validate should with the prefix (IR) to the Iranian iban (Sheba). The default is `true`.
 

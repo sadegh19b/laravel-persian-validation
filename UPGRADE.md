@@ -46,13 +46,14 @@ The validation rules have been significantly enhanced in version 2.0:
 #### New Rules
 - `persian_day`: Validates Persian calendar day names
 - `persian_month`: Validates Persian calendar month names
+- `persian_date_between`: Validates dates between specific Persian dates
 - `persian_date_between_year`: Validates dates between specific Persian years
 - `persian_date_between_or_equal_year`: Validates dates between or equal to specific Persian years
 - `persian_date_between_or_equal`: Validates dates between or equal to specific Persian dates
 
 #### Renamed Rules
 - `shamsi_date` → `persian_date`
-- `shamsi_date_between` → `persian_date_between`
+- `shamsi_date_between` → `persian_date_between_year`
 - `ir_national_code` → `ir_national_id`
 - `ir_phone_code` → `ir_phone_area_code`
 - `ir_sheba` → `ir_iban`
