@@ -14,7 +14,8 @@ _If you want to use the package in older versions of Laravel (6, 7, 8, 9, 10) an
 
 ## Installation
 
-> [!IMPORTANT] > **Read the [upgrade guide](UPGRADE.md) before upgrading to the version 2.0**
+> [!IMPORTANT]
+> **Read the [upgrade guide](UPGRADE.md) before upgrading to the version 2.0**
 
 Install the package with Composer:
 
@@ -223,4 +224,4 @@ $rules = [
 
 ## License
 
-The Laravel Persian Validation package is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT). Please see [License File](LICENSE.md) for more information.
+The Laravel Persian Validation package is open-sourced software licensed under the [MIT License](LICENSE.md).
