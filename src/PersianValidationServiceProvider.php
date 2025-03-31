@@ -28,7 +28,7 @@ class PersianValidationServiceProvider extends ServiceProvider
         'ir_phone_area_code'                 => 'IranianPhoneAreaCode',
         'ir_postal_code'                     => 'IranianPostalCode',
         'ir_bank_card_number'                => 'IranianBankCardNumber',
-        'ir_iban'                            => 'IranianBankIban',
+        'ir_iban'                            => 'IranianIban',
         'ir_national_id'                     => 'IranianNationalId',
         'ir_company_id'                      => 'IranianCompanyId',
     ];
