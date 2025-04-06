@@ -61,7 +61,7 @@ class IranianMobile implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $extendPattern  = '(0[1-5]|[1 3]\d|2[0-2]|98)\d{7}';
+        $extendPattern  = '(0[0-5]|1[0-9]|2[0-3]|3[0-9]|9[0-9])\d{7}';
         $formatPatterns = [
             'zero_code' => "00989{$extendPattern}",
             'plus_code' => "\+989{$extendPattern}",
