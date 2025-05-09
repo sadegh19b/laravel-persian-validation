@@ -50,9 +50,7 @@ class IranianNationalId implements ValidationRule
             $value = str_pad($value, 10, '0', STR_PAD_LEFT);
         }
 
-        if (! preg_match('/^(?!(\d)\1{9}$)[0-9]{10}$/', $value) ||
-            ! $this->isValidNationalCode($value)
-        ) {
+        if (! $this->isValidNationalCode($value)) {
             $fail(Helper::translationKey('ir_national_id'))->translate();
         }
     }
