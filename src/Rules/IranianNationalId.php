@@ -73,6 +73,10 @@ class IranianNationalId implements ValidationRule
      */
     protected function isValidNationalCode(string $value): bool
     {
+        if (mb_strlen($value) !== 10) {
+            return false;
+        }
+
         $sum = 0;
         $values = str_split($value);
 
