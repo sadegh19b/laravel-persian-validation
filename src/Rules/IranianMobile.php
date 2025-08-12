@@ -89,7 +89,7 @@ class IranianMobile implements ValidationRule
             'all'       => 'ir_mobile_with_country_code',
         ];
 
-        if (! array_key_exists($this->format, $formatPatterns)) {
+        if (!isset($formatPatterns[$this->format]))
             throw new \InvalidArgumentException('Invalid format. valid formats are: ' .
                 implode(', ', array_keys($formatPatterns))
             );
