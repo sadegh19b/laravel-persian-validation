@@ -74,7 +74,7 @@ class IranianPhone implements ValidationRule
         ];
 
         if (! is_null($this->withCountryCodeFormat) &&
-            ! array_key_exists($this->withCountryCodeFormat, $countryCodeFormatPatterns)
+            ! isset($countryCodeFormatPatterns[$this->withCountryCodeFormat])
         ) {
             throw new \InvalidArgumentException('Invalid with country code format. Valid formats are: ' .
                 implode(', ', array_keys($countryCodeFormatPatterns)));
