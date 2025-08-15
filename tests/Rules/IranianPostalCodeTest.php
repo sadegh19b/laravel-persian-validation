@@ -46,6 +46,7 @@ class IranianPostalCodeTest extends TestCase
             ['3619735744'],
             ['4619735744'],
             ['5619735744'],
+            ['1619735744'],
         ];
     }
 
