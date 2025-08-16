@@ -1,3 +1,8 @@
+
+[![PHP Version Require][ico-php]][link-packagist]
+[![Total Downloads][ico-downloads]][link-packagist]
+[![License][ico-license]][link-packagist]
+
 # Laravel Persian Validation
 
 Laravel Persian Validation provides validation rules for Persian alphabet, numbers and Iranian-specific data formats.
@@ -9,8 +14,7 @@ numbers, postal codes, and company identifiers. Supporting Laravel 11+ and PHP 8
 -   Laravel 11, 12
 -   PHP >= 8.2
 
-_If you want to use the package in older versions of Laravel (6, 7, 8, 9, 10) and PHP (>= 7.4), you can use the version
-[1.x](https://github.com/sadegh19b/laravel-persian-validation/tree/1.x)._
+> ⚠️ If you need to use the package with older versions of Laravel (6, 7, 8, 9, 10) and PHP (>= 7.4), please use version [1.x](https://github.com/sadegh19b/laravel-persian-validation/tree/1.x)
 
 ## Installation
 
@@ -225,3 +229,8 @@ $rules = [
 ## License
 
 The Laravel Persian Validation package is open-sourced software licensed under the [MIT License](LICENSE.md).
+
+[ico-php]: https://img.shields.io/packagist/dependency-v/sadegh19b/laravel-persian-validation/php.svg
+[link-packagist]: https://packagist.org/packages/sadegh19b/laravel-persian-validation
+[ico-license]: https://img.shields.io/packagist/l/sadegh19b/laravel-persian-validation.svg
+[ico-downloads]: https://img.shields.io/packagist/dt/sadegh19b/laravel-persian-validation.svg?color=brightgreen
