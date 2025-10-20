@@ -37,7 +37,7 @@ php artisan vendor:publish --tag="persian-validation-config"
 ```
 
 If you want to use validations custom messages, you can publish language file.
-Run the below command on your terminal (the language file will be published to `lang/{locale}/persian-validation.php`. supported locales: `en`, `fa`):
+Run the below command on your terminal (the language file will be published to `lang/vendor/persianValidation/{locale}/persian-validation.php`. supported locales: `en`, `fa`):
 
 ```bash
 php artisan vendor:publish --tag="persian-validation-lang"

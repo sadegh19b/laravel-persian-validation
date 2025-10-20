@@ -40,12 +40,6 @@ class PersianValidationServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        if ($this->app->runningInConsole()) {
-            $this->publishLangFiles();
-            $this->publishConfigFile();
-        }
-
-        $this->loadTranslationsFrom(__DIR__ . '/../lang/', Enum::NAMESPACE);
         $this->mergeConfigFrom(__DIR__ . '/../config/' . Enum::FILE_NAME . '.php', Enum::FILE_NAME);
     }
 
@@ -56,6 +50,13 @@ class PersianValidationServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if ($this->app->runningInConsole()) {
+            $this->publishLangFiles();
+            $this->publishConfigFile();
+        }
+
+        $this->loadTranslationsFrom(__DIR__ . '/../lang/', Enum::NAMESPACE);
+
         // Register rules in container
         if (config(Enum::FILE_NAME . '.register_rules', true)) {
             $this->registerRules();
@@ -110,7 +111,7 @@ class PersianValidationServiceProvider extends ServiceProvider
     protected function publishLangFiles(): void
     {
         $this->publishes([
-            __DIR__ . '/../lang' => lang_path(),
+            __DIR__ . '/../lang' => lang_path('vendor/' . Enum::NAMESPACE),
         ], Enum::FILE_NAME . '-lang');
     }
 }
