@@ -11,7 +11,7 @@ numbers, postal codes, and company identifiers. Supporting Laravel 11+ and PHP 8
 
 ## Requirement
 
--   Laravel 11, 12
+-   Laravel 11, 12, 13
 -   PHP >= 8.2
 
 > ⚠️ If you need to use the package with older versions of Laravel (6, 7, 8, 9, 10) and PHP (>= 7.4), please use version [1.x](https://github.com/sadegh19b/laravel-persian-validation/tree/1.x)
